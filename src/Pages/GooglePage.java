@@ -29,7 +29,7 @@ public class GooglePage extends PageBase {
             Thread.sleep(1000);
         }
         catch (InterruptedException e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         System.out.println(driver.getTitle());
     }
