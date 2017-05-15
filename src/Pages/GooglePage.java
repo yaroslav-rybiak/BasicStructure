@@ -18,7 +18,7 @@ public class GooglePage extends PageBase {
     }
 
     private static WebElement searchField(WebDriver driver) {
-        return driver.findElement(By.id("lst-ib"));
+        return driver.findElement(By.cssSelector("input[id=lst-ib]"));
     }
 
 
