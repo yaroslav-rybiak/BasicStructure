@@ -5,15 +5,13 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
     //Creating singleton
-    public static WebDriver driver;
-    public static WebDriverWait wait;
+    protected static WebDriver driver;
 
     @Before
     public void start() {
@@ -26,7 +24,6 @@ public class TestBase {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, 10);
 
         //implicit wait
         //This waits up to 10 seconds before throwing NoSuchElementException exception
