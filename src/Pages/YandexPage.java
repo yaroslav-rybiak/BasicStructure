@@ -6,19 +6,19 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class GooglePage extends PageBase {
+public class YandexPage extends PageBase {
 
     public static void open() {
-        GooglePage.setUrl("https://google.com/ncr");
-        driver.get(GooglePage.getUrl());
+        YandexPage.setUrl("https://yandex.com/");
+        driver.get(YandexPage.getUrl());
     }
 
-    public static void checkResult(String searchQuery) {
-        Assert.assertTrue(driver.getTitle().equals(searchQuery + " - Google Search"));
+    public static void checkResult() {
+        Assert.assertTrue(driver.getTitle().contains("results found"));
     }
 
     private static WebElement searchField(WebDriver driver) {
-        return driver.findElement(By.cssSelector("input[id=lst-ib]"));
+        return driver.findElement(By.cssSelector("input[id=text]"));
     }
 
 
