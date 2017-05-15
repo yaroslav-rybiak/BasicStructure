@@ -1,5 +1,6 @@
 package Pages;
 
+import Misc.PageBase;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,21 +9,24 @@ import org.openqa.selenium.WebElement;
 
 public class YandexPage extends PageBase {
 
-    public static void open() {
-        YandexPage.setUrl("https://yandex.com/");
-        driver.get(YandexPage.getUrl());
+    public YandexPage(){
+        URL = "https://www.yandex.com";
     }
 
-    public static void checkResult() {
+    public String getURL(){
+        return URL;
+    }
+
+    public void checkResult() {
         Assert.assertTrue(driver.getTitle().contains("results found"));
     }
 
-    private static WebElement searchField(WebDriver driver) {
+    private WebElement searchField(WebDriver driver) {
         return driver.findElement(By.cssSelector("input[id=text]"));
     }
 
 
-    public static void search(String searchQuery) {
+    public void search(String searchQuery) {
         searchField(driver).sendKeys(searchQuery);
         searchField(driver).sendKeys(Keys.ENTER);
         try {

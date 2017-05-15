@@ -5,14 +5,16 @@ import org.junit.Test;
 
 public class YandexTest extends YandexPage {
 
+    private YandexPage yandexPage = new YandexPage();
+
     @Test
     public void yandexTest() {
 
         String searchQuery = "test";
 
-        YandexPage.open();
-        YandexPage.search(searchQuery);
-        YandexPage.checkResult();
+        yandexPage.open();
+        yandexPage.search(searchQuery);
+        yandexPage.checkResult();
 
     }
 

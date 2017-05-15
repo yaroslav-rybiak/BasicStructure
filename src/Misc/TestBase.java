@@ -1,4 +1,4 @@
-package Tests;
+package Misc;
 
 import org.junit.After;
 import org.junit.Before;

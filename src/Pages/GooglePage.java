@@ -1,5 +1,6 @@
 package Pages;
 
+import Misc.PageBase;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -8,21 +9,23 @@ import org.openqa.selenium.WebElement;
 
 public class GooglePage extends PageBase {
 
-    public static void open() {
-        GooglePage.setUrl("https://google.com/ncr");
-        driver.get(GooglePage.getUrl());
+    public GooglePage(){
+        URL = "https://www.google.com/ncr";
     }
 
-    public static void checkResult(String searchQuery) {
+    public String getURL(){
+        return URL;
+    }
+
+    public void checkResult(String searchQuery) {
         Assert.assertTrue(driver.getTitle().equals(searchQuery + " - Google Search"));
     }
 
-    private static WebElement searchField(WebDriver driver) {
+    private WebElement searchField(WebDriver driver) {
         return driver.findElement(By.cssSelector("input[id=lst-ib]"));
     }
 
-
-    public static void search(String searchQuery) {
+    public void search(String searchQuery) {
         searchField(driver).sendKeys(searchQuery);
         searchField(driver).sendKeys(Keys.ENTER);
         try {
