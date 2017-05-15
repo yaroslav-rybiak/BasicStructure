@@ -1,16 +1,15 @@
 package Pages;
 
-import Tests.TestBase;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class GooglePage extends TestBase {
+public class GooglePage extends PageBase {
 
     public static void open() {
-        String url = "http://google.com/ncr";
+        url = "http://google.com/ncr";
         driver.get(url);
     }
 
