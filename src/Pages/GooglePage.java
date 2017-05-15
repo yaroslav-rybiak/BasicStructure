@@ -13,10 +13,6 @@ public class GooglePage extends PageBase {
         URL = "https://www.google.com/ncr";
     }
 
-    public String getURL(){
-        return URL;
-    }
-
     public void checkResult(String searchQuery) {
         Assert.assertTrue(driver.getTitle().equals(searchQuery + " - Google Search"));
     }
@@ -35,5 +31,4 @@ public class GooglePage extends PageBase {
             e.printStackTrace();
         }
     }
-
 }

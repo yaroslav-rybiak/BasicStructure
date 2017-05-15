@@ -13,10 +13,6 @@ public class YandexPage extends PageBase {
         URL = "https://www.yandex.com";
     }
 
-    public String getURL(){
-        return URL;
-    }
-
     public void checkResult() {
         Assert.assertTrue(driver.getTitle().contains("results found"));
     }
@@ -24,7 +20,6 @@ public class YandexPage extends PageBase {
     private WebElement searchField(WebDriver driver) {
         return driver.findElement(By.cssSelector("input[id=text]"));
     }
-
 
     public void search(String searchQuery) {
         searchField(driver).sendKeys(searchQuery);
@@ -36,5 +31,4 @@ public class YandexPage extends PageBase {
             e.printStackTrace();
         }
     }
-
 }
