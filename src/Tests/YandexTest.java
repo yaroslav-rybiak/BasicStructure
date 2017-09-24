@@ -1,21 +1,15 @@
 package Tests;
 
-import Pages.YandexPage;
-import org.junit.Test;
+import PageFactory.YandexPage;
+import org.testng.annotations.Test;
 
-public class YandexTest extends YandexPage {
-
-    private YandexPage yandexPage = new YandexPage();
+public class YandexTest extends TestBase {
 
     @Test
     public void yandexTest() {
-
-        String searchQuery = "test";
-
+        YandexPage yandexPage = new YandexPage(driver);
         yandexPage.open();
-        yandexPage.search(searchQuery);
-        yandexPage.checkResult();
-
+        yandexPage.search("lol");
+        yandexPage.takeScreenshot();
     }
-
 }

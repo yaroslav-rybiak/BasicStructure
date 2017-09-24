@@ -1,19 +1,16 @@
 package Tests;
 
-import Pages.GooglePage;
-import org.junit.Test;
+import PageFactory.GooglePage;
+import org.testng.annotations.Test;
 
-public class GoogleTest extends GooglePage {
-
-    private GooglePage googlePage = new GooglePage();
+public class GoogleTest extends TestBase{
 
     @Test
     public void googleTest() {
-
-        String searchQuery = "test";
-
+        GooglePage googlePage = new GooglePage(driver);
         googlePage.open();
-        googlePage.search(searchQuery);
-        googlePage.checkResult(searchQuery);
+        googlePage.search("lol");
+        googlePage.takeScreenshot();
     }
+
 }
