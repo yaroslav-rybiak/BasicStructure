@@ -10,7 +10,5 @@ public class GoogleTest extends TestBase{
         GooglePage googlePage = new GooglePage(driver);
         googlePage.open();
         googlePage.search("lol");
-        googlePage.takeScreenshot();
     }
-
 }

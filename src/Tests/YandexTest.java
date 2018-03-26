@@ -10,6 +10,5 @@ public class YandexTest extends TestBase {
         YandexPage yandexPage = new YandexPage(driver);
         yandexPage.open();
         yandexPage.search("lol");
-        yandexPage.takeScreenshot();
     }
 }
