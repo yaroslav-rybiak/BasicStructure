@@ -1,6 +1,7 @@
 package Tests;
 
 import PageFactory.GooglePage;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
 public class GoogleTest extends TestBase{

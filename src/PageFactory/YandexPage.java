@@ -1,10 +1,12 @@
 package PageFactory;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class YandexPage extends PageBase {
 
@@ -21,5 +23,6 @@ public class YandexPage extends PageBase {
         searchField.clear();
         searchField.sendKeys(query);
         searchField.sendKeys(Keys.ENTER);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("service__name")));
     }
 }
