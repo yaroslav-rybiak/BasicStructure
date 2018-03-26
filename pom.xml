@@ -7,6 +7,10 @@
     <artifactId>TestingFramework</artifactId>
     <version>1.0</version>
 
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
+
     <properties>
         <selenium.version>3.5.3</selenium.version>
 		<testng.version>6.8</testng.version>
