@@ -6,8 +6,8 @@ import org.testng.Assert;
 public class FailedTest extends TestBase{
 
     @Test
-    public void fail() {
-        driver.get("https://www.yahoo.com/");
+    public void failTest() {
+        driver.get("https://search.yahoo.com/");
         Assert.fail("This test is designed to fail.");
     }
 }
