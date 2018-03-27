@@ -13,12 +13,9 @@ public class TakeScreenshot extends TestBase {
 
     static void screenShot(String methodName) throws IOException, InterruptedException
     {
+        String timestamp = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
         File scr=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-        File dest= new File("screenshots/"+methodName + " " + timestamp() + ".png");
+        File dest= new File("screenshots/" + methodName + " " + timestamp + ".png");
         FileUtils.copyFile(scr, dest);
-    }
-
-    private static String timestamp() {
-        return new SimpleDateFormat("dd-MM-yyyy HH-mm-ss").format(new Date());
     }
 }
