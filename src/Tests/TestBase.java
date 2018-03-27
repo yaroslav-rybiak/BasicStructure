@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
-
 import java.util.concurrent.TimeUnit;
 
 abstract public class TestBase {
@@ -27,4 +26,5 @@ abstract public class TestBase {
         driver.quit();
         driver = null;
     }
+
 }
