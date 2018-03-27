@@ -22,9 +22,10 @@ public class GenerateReport implements ITestListener {
 
     @Override
     public void onStart(ITestContext arg0) {
+        new File(folderName).mkdirs();
         try {
             writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(report)));
-            writer.write("<!doctype html>\n<html lang=\"en\">\n<meta charset=\"utf-8\">\n<body>\n");
+            writer.write("<!doctype html>\n<html lang=\"en\">\n<meta charset=\"utf-8\">\n<body>\n<table>\n");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -39,14 +40,12 @@ public class GenerateReport implements ITestListener {
     @Override
     public void onTestStart(ITestResult arg0) {
 
-        System.out.println(" Starting test: " + arg0.getName());
-
     }
 
     @Override
     public void onTestSuccess(ITestResult arg0) {
         try {
-            String p = "\t<p>" + arg0.getName() + " passed</p>\n";
+            String p = "\t<tr><td>" + arg0.getName() + "</td><td>passed</td></tr>\n";
             Files.write(Paths.get(reportPath), p.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,7 +55,7 @@ public class GenerateReport implements ITestListener {
     @Override
     public void onTestFailure(ITestResult arg0) {
         try {
-            String p = "\t<p>" + arg0.getName() + " failed</p>\n";
+            String p = "\t<tr><td>" + arg0.getName() + "</td><td>failed</td></tr>\n";
             Files.write(Paths.get(reportPath), p.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,7 +65,7 @@ public class GenerateReport implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult arg0) {
         try {
-            String p = "\t<p>" + arg0.getName() + " skipped</p>\n";
+            String p = "\t<tr><td>" + arg0.getName() + "</td><td>skipped</td></tr>\n";
             Files.write(Paths.get(reportPath), p.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
@@ -76,7 +75,7 @@ public class GenerateReport implements ITestListener {
     @Override
     public void onFinish(ITestContext arg0) {
         try {
-            Files.write(Paths.get(reportPath), "</body>\n</html>".getBytes(), StandardOpenOption.APPEND);
+            Files.write(Paths.get(reportPath), "</table></body>\n</html>".getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,8 +83,6 @@ public class GenerateReport implements ITestListener {
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
-
-        // TODO Auto-generated method stub
 
     }
 }
