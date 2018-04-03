@@ -16,6 +16,7 @@ abstract public class TestBase {
     public void start() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
+        options.setExperimentalOption("useAutomationExtension", false);
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
