@@ -3,7 +3,6 @@
 <suite name="Suite" verbose="1" >
     <listeners>
         <listener class-name="Helpers.ScreenshotListener" />
-        <listener class-name="Helpers.GenerateReport" />
     </listeners>
     <test name="search engine tests">
         <classes>
