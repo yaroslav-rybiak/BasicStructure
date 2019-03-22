@@ -7,8 +7,8 @@
     <test name="search engine tests">
         <classes>
             <class name="Tests.GoogleTest"/>
-            <class name="Tests.YandexTest"/>
-            <class name="Tests.FailedTest"/>
+            <!--<class name="Tests.YandexTest"/>-->
+            <!--<class name="Tests.FailedTest"/>-->
         </classes>
     </test>
 </suite>
