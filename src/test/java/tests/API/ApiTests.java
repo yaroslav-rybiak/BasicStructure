@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -35,11 +34,11 @@ public class ApiTests {
     @Story("User creation")
     public void postTest_createNewUser() {
         String payload = "{\"name\": \"Yaroslav\",\"job\": \"QA\"}";
-                        given()
-                        .contentType(ContentType.JSON)
-                        .body(payload)
-                        .post("/api/users")
-                        .then()
-                        .statusCode(201);
+        given()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .post("/api/users")
+                .then()
+                .statusCode(201);
     }
 }
