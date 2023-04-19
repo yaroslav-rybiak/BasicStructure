@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends BasePage {
+public class MainPage extends BasePage {
 
     /**
      * Web Elements
@@ -19,7 +19,7 @@ public class LoginPage extends BasePage {
     /**
      * Constructor
      */
-    public LoginPage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         super(driver);
         URL = "https://www.cbc.ca/";
         PageFactory.initElements(driver, this);
@@ -28,8 +28,13 @@ public class LoginPage extends BasePage {
     /**
      * Page Methods
      */
-    public LoginPage fillEmail(String email) {
-        emailField.sendKeys(email);
+    public MainPage open() {
+        open(URL);
         return this;
+    }
+
+    public void clickSignInButton() {
+        signInForm.click();
+        waitVisibility(emailField);
     }
 }
