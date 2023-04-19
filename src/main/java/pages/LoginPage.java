@@ -10,18 +10,17 @@ public class LoginPage extends BasePage {
     /**
      * Web Elements
      */
-    @FindBy(xpath = "//span[@class='profileText']")
-    WebElement signInForm;
-
     @FindBy(id = "email")
     public WebElement emailField;
+    @FindBy(id = "password")
+    public WebElement passwordField;
 
     /**
      * Constructor
      */
     public LoginPage(WebDriver driver) {
         super(driver);
-        URL = "https://www.cbc.ca/";
+        URL = "https://www.cbc.ca/account/login";
         PageFactory.initElements(driver, this);
     }
 
@@ -30,6 +29,11 @@ public class LoginPage extends BasePage {
      */
     public LoginPage fillEmail(String email) {
         emailField.sendKeys(email);
+        return this;
+    }
+
+    public LoginPage fillPassword(String password) {
+        passwordField.sendKeys(password);
         return this;
     }
 }
