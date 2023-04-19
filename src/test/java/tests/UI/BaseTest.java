@@ -6,9 +6,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
+import pages.MainPage;
 
 public class BaseTest {
     public WebDriver driver;
+    public MainPage mainPage;
     public LoginPage loginPage;
 
     public WebDriver getDriver() {
@@ -18,11 +20,8 @@ public class BaseTest {
     @BeforeClass
     public void classLevelSetup() {
         driver = new ChromeDriver();
-    }
-
-    @BeforeMethod
-    public void methodLevelSetup() {
         loginPage = new LoginPage(driver);
+        mainPage  = new MainPage(driver);
     }
 
     @AfterClass
