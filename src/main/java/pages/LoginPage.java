@@ -1,6 +1,5 @@
 package pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,13 +36,11 @@ public class LoginPage extends BasePage {
     /**
      * Page Methods
      */
-    @Step("Open login page")
     public LoginPage goToLoginPage() {
         open(URL);
         return this;
     }
 
-    @Step("Login Step with username: {0}, password: {1}, for method: {method} step...")
     public LoginPage login(String username, String password) {
         waitVisibility(loginForm);
         writeText(usernameField, username);
@@ -52,14 +49,12 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("Check that user logged in successfully")
     public LoginPage checkSuccess() {
         waitVisibility(logoutButton);
         Assert.assertTrue(logoutButton.isDisplayed());
         return this;
     }
 
-    @Step("Check that error text appears")
     public LoginPage checkError() {
         waitVisibility(loginError);
         Assert.assertTrue(loginError.isDisplayed());
