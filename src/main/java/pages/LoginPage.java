@@ -32,8 +32,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    public LoginPage fillPassword(String password) {
+    public void fillPassword(String password) {
         passwordField.sendKeys(password);
-        return this;
     }
 }

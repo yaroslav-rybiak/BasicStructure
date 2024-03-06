@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -12,10 +11,6 @@ public class BaseTest {
     public WebDriver driver;
     public MainPage mainPage;
     public LoginPage loginPage;
-
-    public WebDriver getDriver() {
-        return driver;
-    }
 
     @BeforeClass
     public void classLevelSetup() {
@@ -25,7 +20,7 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void teardown() {
+    public void tearDown() {
         driver.quit();
     }
 }
